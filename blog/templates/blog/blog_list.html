@@ -3,146 +3,230 @@
 
 
 {% block body %}
-    <div class="container">
-        <div class="breadcrumb-area">
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-					<h1 class="theme-breacrumb-title">Category : Politics</h1>
-				</div>
-            </div>
-        </div>
-    </div>
+
     
     <!-- blog-area start -->
     <div class="blog-area pd-top-100 pd-bottom-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="media-post-wrap pd-bottom-80 mb-0">
-                        <div class="thumb mb-4">
-                            <img class="w-100" src="{% static 'img/blog/obama-1.jpg' %}" alt="img">
-                        </div>
-                        <div class="media-body pt-1 ms-0">
-                            <a class="tag top-right tag-purple" href="blog-category.html#">Politics</a>
-                            <h1><a href="blog-details.html">Obama avoids crowds outside Edinburgh charity dinner.</a></h1>
-                        </div>
-                        <div class="meta d-flex">
-                            <div class="author">
-                                <div class="thumb">
-                                    <img src="{% static 'img/banner/user.jpeg' %}" alt="img">
-                                </div>
-                                <a href="blog-category.html#">Stiven Jackson</a>
-                            </div>
-                            <div class="date">
-                                <i class="fa fa-clock-o"></i>
-                                    Mar 16, 2022						
-                            </div>
-                        </div>
-                        <p class="mb-3">When working remotely and having to manage your own time, it is not uncommon for breaks to be overlooked. A new survey by the online scheduling platform Doodle confirms the US workforce’s collective neglect of breaks. 72% of US employees admit to feeling</p>
-                        <a class="btn btn-main mt-3" href="blog-category.html#">Read More</a>
+                    <div class="section-title pb-0">
+                        <h4 class="title left-line">All articles</h4>
                     </div>
-                    <div class="media-post-wrap pd-bottom-40 mb-0">
-                        <div class="thumb mb-4">
-                            <img class="w-100" src="{% static 'img/blog/paper-thumb-1.jpg' %}" alt="img">
-                        </div>
-                        <div class="media-body pt-1 ms-0">
-                            <a class="tag top-right tag-purple" href="blog-category.html#">Politics</a>
-                            <h1><a href="blog-details.html">Apollo astronauts harmed by a the deep space radiation.</a></h1>
-                        </div>
-                        <div class="meta d-flex">
-                            <div class="author">
-                                <div class="thumb">
-                                    <img src="{% static 'img/banner/user.jpeg' %}" alt="img">
+                    <div class="row">
+                        {% for blog in blogs %}
+                        <div class="col-lg-6">
+                            <div class="media-post-wrap">
+                                <div class="thumb mb-4">
+                                    <img src="/media/{{ blog.image }}" alt="img" height="200">
                                 </div>
-                                <a href="blog-category.html#">Stiven Jackson</a>
-                            </div>
-                            <div class="date">
-                                <i class="fa fa-clock-o"></i>
-                                    Mar 16, 2022						
-                            </div>
-                        </div>
-                        <p class="mb-3">When working remotely and having to manage your own time, it is not uncommon for breaks to be overlooked. A new survey by the online scheduling platform Doodle confirms the US workforce’s collective neglect of breaks. 72% of US employees admit to feeling</p>
-                        <a class="btn btn-main mt-3" href="blog-category.html#">Read More</a>
-                    </div>
-                    <div class="media-post-wrap pd-bottom-40 mb-0">
-                        <div class="thumb mb-4">
-                            <img class="w-100" src="{% static 'img/blog/protest.jpg' %}" alt="img">
-                        </div>
-                        <div class="media-body pt-1 ms-0">
-                            <a class="tag top-right tag-purple" href="blog-category.html#">Politics</a>
-                            <h1><a href="blog-details.html">Huge glacier collapses in Arge.</a></h1>
-                        </div>
-                        <div class="meta d-flex">
-                            <div class="author">
-                                <div class="thumb">
-                                    <img src="{% static 'img/banner/user.jpeg' %}" alt="img">
+                                <div class="media-body ms-0">
+                                    <a class="tag top-right tag-red" href="home.html#">{{ blog.category }}</a>
+                                    <h4><a href="{% url 'blogs:blog_details' blog.slug %}">{{ blog.title }}</a></h4>
                                 </div>
-                                <a href="blog-category.html#">Stiven Jackson</a>
-                            </div>
-                            <div class="date">
-                                <i class="fa fa-clock-o"></i>
-                                    Mar 16, 2022						
-                            </div>
-                        </div>
-                        <p class="mb-3">When working remotely and having to manage your own time, it is not uncommon for breaks to be overlooked. A new survey by the online scheduling platform Doodle confirms the US workforce’s collective neglect of breaks. 72% of US employees admit to feeling</p>
-                        <a class="btn btn-main mt-3" href="blog-category.html#">Read More</a>
-                    </div>
-                    <div class="media-post-wrap pd-bottom-40 mb-0">
-                        <div class="thumb mb-4">
-                            <img class="w-100" src="{% static 'img/blog/country-parliament.jpg' %}" alt="img">
-                        </div>
-                        <div class="media-body pt-1 ms-0">
-                            <a class="tag top-right tag-purple" href="blog-category.html#">Politics</a>
-                            <h1><a href="blog-details.html">Julian Assange charged in US, court document for an accidentally reveals changing the technology.</a></h1>
-                        </div>
-                        <div class="meta d-flex">
-                            <div class="author">
-                                <div class="thumb">
-                                    <img src="{% static 'img/banner/user.jpeg' %}" alt="img">
+                                <div class="meta d-flex">
+                                    <div class="author">
+                                        <div class="thumb">
+                                            <img src="{% static 'img/banner/user.jpeg' %}" alt="img">
+                                        </div>
+                                        <a href="home.html#">{{ blog.author }}</a>
+                                    </div>
+                                    <div class="date ms-auto">
+                                        <i class="fa fa-clock-o"></i>
+                                            {{ blog.published_at|date:'d-M-Y' }}						
+                                    </div>
                                 </div>
-                                <a href="blog-category.html#">Stiven Jackson</a>
-                            </div>
-                            <div class="date">
-                                <i class="fa fa-clock-o"></i>
-                                    Mar 16, 2022						
                             </div>
                         </div>
-                        <p class="mb-3">When working remotely and having to manage your own time, it is not uncommon for breaks to be overlooked. A new survey by the online scheduling platform Doodle confirms the US workforce’s collective neglect of breaks. 72% of US employees admit to feeling</p>
-                        <a class="btn btn-main mt-3" href="blog-category.html#">Read More</a>
+                        {% endfor %}
                     </div>
+
+
+                    {% if blogs.has_other_pages %}
                     <div class="pagination-area text-center">
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                              <li class="page-item"><a class="page-link active" href="blog-category.html#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="blog-category.html#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="blog-category.html#"><i class="fa fa-long-arrow-right"></i></a></li>
-                            </ul>
+                                <ul class="pagination">
+
+                                {% if blogs.has_previous %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ blogs.previous_page_number }}"><i class="fa fa-long-arrow-left"></i></a></li>
+                                {% endif %}
+                                
+                                {% for page in blogs.paginator.page_range %}
+
+                                    {% if blogs.number == page %}
+                                        <li class="page-item"><a class="page-link active">{{page}}</a></li>
+                                    {% else %}
+                                        <li class="page-item"><a class="page-link" href="?page={{ page }}">{{page}}</a></li>
+                                    {% endif %}
+
+                                {% endfor %}
+
+                                {% if blogs.has_next %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ blogs.next_page_number }}"><i class="fa fa-long-arrow-right"></i></a></li>
+                                {% endif %}
+
+                                </ul>
                         </nav>
                     </div>
+                    {% endif %}
+
                 </div>
                 <div class="col-lg-4">
                     <div class="side-area">
-                        <div class="widget widget_search">
-                            <h5 class="widget-title">
+                    
+                        {% comment %} Search start {% endcomment %}
+                    <div class="widget widget_search">
+                        <div class="section-title pb-0">
+                            <h5 class="title left-line widget-title">
                                 Search
                             </h5>
-                            <div class="subscribe-inner">
-                                <input type="text">
-                                <button class="btn">Search</button>
+                        </div>
+                        <div class="subscribe-inner">
+                            <input type="text">
+                            <button class="btn">Search</button>
+                        </div>
+                    </div>
+                    {% comment %} Search end {% endcomment %}
+
+                    {% comment %} Weekly Post start {% endcomment %}
+                    <div class="post-list-small-wrapper">
+                        <div class="section-title pb-0">
+                            <h4 class="title">Weekly Post</h4>
+                        </div>
+                        <div class="post-grid-slider owl-carousel owl-loaded owl-drag">
+
+                            <div class="owl-stage-outer">
+                                <div class="owl-stage"
+                                     style="transform: translate3d(-2732px, 0px, 0px); transition: all 0s ease 0s; width: 5464px;">
+
+                                    <div class="owl-item" style="width: 673px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="thumb">
+                                                <img src="{% static 'img/blog/3.png' %}" alt="img">
+                                            </div>
+                                            <div class="details">
+                                                <p>When working remotely and having to manage your own time, it is not
+                                                    uncommon for breaks to be overlooked.</p>
+                                                <div class="meta d-flex">
+                                                    <div class="author">
+                                                        <div class="thumb">
+                                                            <img src="{% static 'img/banner/user.jpeg' %}" alt="img">
+                                                        </div>
+                                                        <a href="#">Stiven Jackson</a>
+                                                    </div>
+                                                    <div class="date">
+                                                        <i class="fa fa-clock-o"></i>
+                                                        Mar 16, 2022
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="owl-item active" style="width: 673px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="thumb">
+                                                <img src="{% static 'img/blog/4.png' %}" alt="img">
+                                            </div>
+                                            <div class="details">
+                                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text,
+                                                 making it over 2000 years old. Richard McClintock.</p>
+                                                <div class="meta d-flex">
+                                                    <div class="author">
+                                                        <div class="thumb">
+                                                            <img src="{% static 'img/banner/user.jpeg' %}" alt="img">
+                                                        </div>
+                                                        <a href="#">Hassan Thabet</a>
+                                                    </div>
+                                                    <div class="date">
+                                                        <i class="fa fa-clock-o"></i>
+                                                        Mar 16, 2022
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="owl-nav disabled">
+                                <button type="button" role="presentation" class="owl-prev"><i
+                                        class="fa fa-long-arrow-left"></i></button>
+                                <button type="button" role="presentation" class="owl-next"><i
+                                        class="fa fa-long-arrow-right"></i></button>
                             </div>
                         </div>
-                        
-                        <div class="ad-area pt-3">
-                            <a href="blog-category.html#">
-                                <img src="{% static 'img/ad/ads.png' %}" alt="img">
-                            </a>
+                    </div>
+                    <br>
+                    {% comment %} Weekly Post end {% endcomment %}
+
+
+                    {% comment %} Popular Articles start {% endcomment %}
+                    <div class="section-title pb-0">
+                        <h5 class="title left-line widget-title">
+                            Popular Articles
+                        </h5>
+                    </div>
+
+                    <div class="media-post-wrap-3 media">
+                        <div class="thumb">
+                            <img src="{% static 'img/blog/obama.jpg' %}" alt="img">
                         </div>
-                        <div class="ad-area pt-3">
-                            <a href="blog-category.html#">
-                                <img src="{% static 'img/ad/ads.png' %}" alt="img">
-                            </a>
+                        <div class="media-body">
+                            <h6><a href="blog-category.html">Obama avoids crowds outside Edinburgh charity dinner.</a>
+                            </h6>
+                            <div class="meta d-flex">
+                                <div class="tag"><a href="#">Politics</a></div>
+                                <div class="date">
+                                    <i class="fa fa-clock-o"></i>
+                                    July 12, 2021
+                                </div>
+                            </div>
                         </div>
-                         
+                    </div>
+
+                    <div class="media-post-wrap-3 media">
+                        <div class="thumb">
+                            <img src="{% static 'img/blog/obama.jpg' %}" alt="img">
+                        </div>
+                        <div class="media-body">
+                            <h6><a href="blog-category.html">Obama avoids crowds outside Edinburgh charity dinner.</a>
+                            </h6>
+                            <div class="meta d-flex">
+                                <div class="tag"><a href="#">Politics</a></div>
+                                <div class="date">
+                                    <i class="fa fa-clock-o"></i>
+                                    July 12, 2021
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} Popular Articles end {% endcomment %}
+
+
+                    {% comment %} Tags start {% endcomment %}
+                    <div class="widget widget_tags mt-5">
+                        <div class="section-title pb-0">
+                            <h4 class="title left-line widget-title">Tags</h4>
+                        </div>
+                        <div class="tagcloud">
+                            <a href="#">Business</a>
+                            <a href="#">Digital Marketing</a>
+                            <a href="#">Lifestyle</a>
+                            <a href="#">Sports</a>
+                            <a href="#">Technology</a>
+                            <a href="#">Travel</a>
+                            <a href="#">Trendy</a>
+                            <a href="#">World</a>
+                        </div>
+                    </div>
+
+
+                    {% comment %} Tags start {% endcomment %}
+
                     </div>
                 </div>
             </div>

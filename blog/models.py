@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 
 class Blog(models.Model):
@@ -9,9 +10,14 @@ class Blog(models.Model):
     published_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey("Category", on_delete=models.CASCADE)
     image = models.ImageField(upload_to='blogs_images/')
+    slug = models.SlugField(null=True, blank=True, max_length=150)
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Blog, self).save(*args, **kwargs)
 
 
 class Category(models.Model):

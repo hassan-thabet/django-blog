@@ -2,15 +2,7 @@
 {% load static %}
 
 {% block body %}
-<div class="container">
-    <div class="breadcrumb-area">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <h1 class="theme-breacrumb-title">Blog Details Page</h1>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!-- blog-area start -->
 <div class="blog-area pd-top-100 pd-bottom-100">
@@ -22,7 +14,7 @@
                         <img class="w-100" src="/media/{{ blog.image }}" alt="img">
                     </div>
                     <div class="media-body pt-1 ms-0">
-                        <a class="tag top-right tag-pest" href="blog-details.html#">{{ blog.category }}</a>
+                        <a class="tag top-right tag-red" href="blog-details.html#">{{ blog.category }}</a>
                         <h1>{{ blog.title }}</h1>
                     </div>
                     <div class="meta d-flex">
@@ -37,33 +29,11 @@
                             Mar 16, 2022
                         </div>
                     </div>
-                    <p class="mb-3">{{ blog.article }}</p>
+                    
 
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="thumb">
-                                <img src="{% static 'img/blog/post-thumb-two.jpg' %}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="thumb">
-                                <img src="{% static 'img/blog/post-thumb-one.jpg' %}" alt="">
-                            </div>
-                        </div>
+                    <div class="ck ck-content">
+                        {{ blog.article|safe}}
                     </div>
-                    
-                    <div class="thumb mt-4">
-                        <img src="{% static 'img/blog/post-details-thumb.jpg' %}" alt="">
-                    </div>
-                    
-                   <blockquote>
-                        <div class="icon">
-                            <i class="fa fa-quote-left"></i>
-                        </div>
-                        <p>“If we are going to have a strong small business sector and economic recovery, we need our
-                            policymakers to act to rein in these costs. It’s an urgent priority of small
-                            businesses,”</p>
-                    </blockquote>
                    
                     <div class="blog-tag-area mt-4">
                         <h4>Tags:</h4>
@@ -162,7 +132,7 @@
                         </div>
                     </div>
                     <br>
-                    {% comment %} Weekly Post start {% endcomment %}
+                    {% comment %} Weekly Post end {% endcomment %}
 
 
                     {% comment %} Popular Articles start {% endcomment %}
@@ -205,7 +175,7 @@
                             </div>
                         </div>
                     </div>
-                    {% comment %} Popular Articles start {% endcomment %}
+                    {% comment %} Popular Articles end {% endcomment %}
 
 
                     {% comment %} Tags start {% endcomment %}
@@ -239,6 +209,7 @@
 </div>
 </div>
 <!-- blog-area end -->
+
 {% endblock body %}
 
 

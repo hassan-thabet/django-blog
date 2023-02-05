@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title>Hello Forex - Articles & News </title>
-
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"> </script>
     <!-- favicon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="demo-landing/img/favicon.png">
@@ -68,7 +68,9 @@
     <div class="navbar-area">
         <nav class="navbar navbar-expand-lg">
             <div class="container nav-container">
-                <a class="main-logo" href="home.html"><img src="{% static 'img/logo.png' %}" alt="img"></a>
+                <div style="padding-right: 40px ; padding-top: 6px">
+                    <h3>HELLO FOREX</h3>
+                </div>
                 <div class="responsive-mobile-menu">
                     <div class="logo d-lg-none d-block">
                         <a class="main-logo" href="home.html"><img src="{% static 'img/logo.png' %}" alt="img"></a>
@@ -151,6 +153,22 @@
 
 
     <!-- footer area start -->
+    <blockquote>
+                        <div class="icon">
+                            <i class="fa fa-quote-left"></i>
+                        </div>
+                        <div align="center">
+                            <h5>Risk Warning</h5>
+                        </div>
+                        <div align="center">
+                        <a>“Risk Warning: Trading on financial markets carries risks. Contracts for Difference (‘CFDs’) are complex financial products that are traded on margin.
+                         Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, CFDs may not be suitable for all investors because you may lose all your invested capital. You should not risk more than you are prepared to lose. Before deciding to trade, you need to ensure that you understand the risks involved and take into account your investment objectives and level of experience. Click here for our full Risk Disclosure.”</a>
+                        </div>
+                        <div class="icon" align="right">
+                            <i  class="fa fa-quote-right"></i>
+                        </div>
+     </blockquote>
+
     <footer class="footer-area pd-top-80">
         <div class="container">
             <div class="footer-top">
