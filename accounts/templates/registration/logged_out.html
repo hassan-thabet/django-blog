@@ -1,6 +1,56 @@
 {% extends "base.html" %}
 
 {% block body %}
-  <p>Logged out!</p>
+
+
+
+
+
+    <!-- Section: Design Block -->
+    <div class="d-flex justify-content-center">
+      <div class="col-sm-8">
+        <section class=" text-center text-lg-start">
+          <style>
+
+            @media (min-width: 992px) {
+              .rounded-tr-lg-0 {
+                border-top-right-radius: 0;
+              }
+            }
+          </style>
+          <div class="card mb-3">
+            <div class="row g-0 d-flex align-items-center">
+              <div class="col-lg-4 d-none d-lg-flex">
+                <img src="/static/img/login.png" alt="Trendy Pants and Shoes" class="img-fluid" style="height: 100%" />
+              </div>
+              <div class="col-lg-8">
+                <div class="card-body py-5 px-md-5">
+
+                     <p>Logged out successfully!</p>
+                      
+                    <div class="d-grid gap-2">
+                    <a href="{% url 'login'%}"><button class="btn btn-dark" type="button">login again</button></a>
+                      
+                    </div>
+                     
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- Section: Design Block -->
+
+
+
+
+
+
+
+  {% comment %}
+   <p>Logged out!</p>
   <a href="{% url 'login'%}">Click here to login again.</a>
+   {% endcomment %}
 {% endblock %}
