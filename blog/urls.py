@@ -12,4 +12,5 @@ urlpatterns = [
     # API URLS
 
     path('api/blog_list', api.bloglistapi, name='blog_list_api'),
+    path('api/blog_details/<int:id>', api.blogdetailsapi, name='blog_details_api'),
 ]

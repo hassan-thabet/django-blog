@@ -9,3 +9,10 @@ def bloglistapi(request):
     blogs_list = Blog.objects.all()
     data = BlogSerializer(blogs_list, many=True).data
     return Response({'data': data})
+
+
+@api_view(['GET'])
+def blogdetailsapi(request, id):
+    blog_details = Blog.objects.get(id=id)
+    data = BlogSerializer(blog_details).data
+    return Response({'data': data})

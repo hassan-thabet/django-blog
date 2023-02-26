@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <title>Hello Forex - Articles & News </title>
     <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"> </script>
     <!-- favicon -->
-    <link rel="icon" href="demo-landing/img/favicon.png">
-    
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
@@ -32,7 +32,7 @@
     </div>
     <!-- search popup area start -->
     <div class="search-popup" id="search-popup">
-        <form action="home.html" class="search-form">
+        <form action="" class="search-form">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search.....">
             </div>
@@ -42,24 +42,24 @@
     <!-- //. search Popup -->
     <div class="body-overlay" id="body-overlay"></div>
 
-    <header id="theme-header-one" class="header-style-one">	
+    <header id="theme-header-one" class="header-style-one">
 		<div class="top-header-area">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-sm-6">
-                        <div class="header-weather"><i class="fa fa-weather"></i>   38°C</div>                  
+                        <div class="header-weather"><i class="fa fa-weather"></i>   38°C</div>
                         <div class="header-date">August 6, 2022</div>
                     </div>
                     <div class="col-md-6 col-sm-6 text-end">
                         <div class="htop_social">
-                            <a href="blog-category.html#" class="social-list__link"><i class="fa fa-facebook-f"></i></a>
-                            <a href="blog-category.html#" class="social-list__link"><i class="fa fa-twitter"></i></a>
-                            <a href="blog-category.html#" class="social-list__link"><i class="fa fa-instagram"></i></a>
-                            <a href="blog-category.html#" class="social-list__link"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#" class="social-list__link"><i class="fa fa-facebook-f"></i></a>
+                            <a href="#" class="social-list__link"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="social-list__link"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="social-list__link"><i class="fa fa-youtube-play"></i></a>
                         </div>
                     </div>
                 </div>
-            </div>	
+            </div>
         </div>
     </header>
 
@@ -72,7 +72,7 @@
                 </div>
                 <div class="responsive-mobile-menu">
                     <div class="logo d-lg-none d-block">
-                        <a class="main-logo" href="home.html"><img src="{% static 'img/logo.png' %}" alt="img"></a>
+                        <a class="main-logo" href="#"><img src="{% static 'img/logo.png' %}" alt="img"></a>
                     </div>
                     <button class="menu toggle-btn d-block d-lg-none" data-target="#miralax_main_menu" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-left"></span>
@@ -80,18 +80,18 @@
                     </button>
                 </div>
                 <div class="nav-right-part nav-right-part-mobile">
-                    <a class="search header-search" href="blog-category.html#"><i class="fa fa-search"></i></a>
+                    <a class="search header-search" href="#"><i class="fa fa-search"></i></a>
                 </div>
                 <div class="collapse navbar-collapse" id="miralax_main_menu">
                     <ul class="navbar-nav menu-open">
                         <li><a href="/">Home</a></li>
-                        <li><a href="blog-category.html">Business</a></li>
-                        <li><a href="blog-category.html">Politics</a></li>
-                        <li><a href="blog-category.html">Tech</a></li>
-                        <li><a href="blog-category.html">Tech</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Politics</a></li>
+                        <li><a href="#">Tech</a></li>
+                        <li><a href="#">Tech</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+
                     </ul>
                 </div>
                 <div class="nav-right-part nav-right-part-desktop">
@@ -102,7 +102,7 @@
                     </ul>
                 </div>
                 </div>
-        
+
                 {% comment %} <div class="nav-right-part nav-right-part-desktop">
                     <a class="search header-search" href="blog-category.html#"><i class="fa fa-search"></i></a>
                 </div> {% endcomment %}
@@ -122,7 +122,7 @@
                             <div class="breaking-news-post-date">March 16</div>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
@@ -130,10 +130,10 @@
     <br>
     <!-- ad start -->
     <div class="container">
-      
+
             <div class="row justify-content-center">
                 <div class="col-md-12">
-					<img src="{% static 'img/ad/kiante-ads.png' %}" alt="ad"> 
+					<img src="{% static 'img/ad/kiante-ads.png' %}" alt="ad">
 				</div>
 
         </div>
@@ -142,7 +142,7 @@
     <br>
 
     {% block body %}
-    
+
     {% endblock body %}
 
 
@@ -183,11 +183,11 @@
                         <h5 class="widget-title">Quick Links</h5>
                         <div class="widget widget_link">
                             <ul>
-                                <li><a href="blog-category.html#">Marketing</a></li>
-                                <li><a href="blog-category.html#">Motivation</a></li>
-                                <li><a href="blog-category.html#">Politics</a></li>
-                                <li><a href="blog-category.html#">Travel</a></li>
-                                <li><a href="blog-category.html#">Technology</a></li>
+                                <li><a href="#">Marketing</a></li>
+                                <li><a href="#">Motivation</a></li>
+                                <li><a href="#">Politics</a></li>
+                                <li><a href="#">Travel</a></li>
+                                <li><a href="#">Technology</a></li>
                             </ul>
                         </div>
                     </div>
@@ -195,15 +195,15 @@
                         <h5 class="widget-title">Entertainment</h5>
                         <div class="widget widget_link">
                             <ul>
-                                <li><a href="blog-category.html#">Hollywood
+                                <li><a href="#">Hollywood
                                 </a></li>
-                                <li><a href="blog-category.html#">Music
+                                <li><a href="#">Music
                                 </a></li>
-                                <li><a href="blog-category.html#">Videos
+                                <li><a href="#">Videos
                                 </a></li>
-                                <li><a href="blog-category.html#">TV News
+                                <li><a href="#">TV News
                                 </a></li>
-                                <li><a href="blog-category.html#">Celebrity News
+                                <li><a href="#">Celebrity News
                                 </a></li>
                             </ul>
                         </div>
@@ -212,15 +212,15 @@
                         <h5 class="widget-title">Overview</h5>
                         <div class="widget widget_link">
                             <ul>
-                                <li><a href="blog-category.html#">Business
+                                <li><a href="#">Business
                                 </a></li>
-                                <li><a href="blog-category.html#">About
+                                <li><a href="#">About
                                 </a></li>
-                                <li><a href="blog-category.html#">Contact
+                                <li><a href="#">Contact
                                 </a></li>
-                                <li><a href="blog-category.html#">Blog
+                                <li><a href="#">Blog
                                 </a></li>
-                                <li><a href="blog-category.html#">Marketing
+                                <li><a href="#">Marketing
                                 </a></li>
                             </ul>
                         </div>
