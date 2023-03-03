@@ -13,4 +13,7 @@ urlpatterns = [
 
     path('api/blog_list', api.bloglistapi, name='blog_list_api'),
     path('api/blog_details/<int:id>', api.blogdetailsapi, name='blog_details_api'),
+    path('api/category_blogs/<int:category_id>',api.categoryblogsapi, name='category_blogs_api'),
+    path('api/category_list', api.categorylistapi, name='category_list_api'),
+
 ]
