@@ -11,6 +11,8 @@ class Blog(models.Model):
     category = models.ForeignKey("Category", on_delete=models.CASCADE)
     image = models.ImageField(upload_to='blogs_images/')
     slug = models.SlugField(null=True, blank=True, max_length=150)
+    read_time = models.IntegerField()
+    popular = models.IntegerField()
 
     def __str__(self):
         return self.title
