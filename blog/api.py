@@ -48,7 +48,7 @@ def categorylistapi(request):
 
 @api_view(['GET'])
 def recentArticlesapi(request):
-    recent_articles = Blog.objects.order_by('-published_at')
+    recent_articles = Blog.objects.order_by('-created_at')
     data = BlogSerializer(recent_articles, many=True).data
     return Response({'data': data})
 
