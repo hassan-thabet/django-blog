@@ -25,6 +25,7 @@ class Blog(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=25, default='some string')
+    image = models.ImageField(upload_to='category_images/')
 
     def __str__(self):
         return self.name

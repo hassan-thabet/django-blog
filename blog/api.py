@@ -18,8 +18,6 @@ def bloglistapi(request):
 def blogdetailsapi(request, id):
     blog_details = Blog.objects.get(id=id)
     data = BlogSerializer(blog_details).data
-
-
     ## incrrease popularty counter every request
     blog_details.popular += 1
     blog_details.save()
@@ -85,3 +83,12 @@ def randomArticlesapi(request):
 
 
 #  ====================================================================================
+
+
+@api_view(['GET'])
+def searchArticleapi(request):
+    blog_details = Blog.objects.all()
+    data = BlogSerializer(blog_details).data
+
+    ## return json data
+    return Response({'data': data})
