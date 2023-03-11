@@ -76,9 +76,8 @@ def shortArticlesapi(request):
 
 @api_view(['GET'])
 def randomArticlesapi(request):
-    random_articles = list(Blog.objects.all())
-    random_items = random.sample(random_articles, 3)
-    data = BlogSerializer(random_items, many=True).data
+    random_articles = Blog.objects.order_by('updated_at')
+    data = BlogSerializer(random_articles, many=True).data
     return Response({'data': data})
 
 
