@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/category_blogs/<int:category_id>',api.categoryblogsapi, name='category_blogs_api'),
     path('api/category_list', api.categorylistapi, name='category_list_api'),
 
+
 ]

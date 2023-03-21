@@ -4,24 +4,39 @@ from .serializers import BlogSerializer
 from .serializers import CategorySerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-import random
+from rest_framework.pagination import PageNumberPagination
+
+
+# @api_view(['GET'])
+# def bloglistapi(request):
+#     blogs_list = Blog.objects.all()
+#     data = BlogSerializer(blogs_list, many=True).data
+#     return Response({'data': data})
+# 
+
+paginator = PageNumberPagination()
 
 
 @api_view(['GET'])
 def bloglistapi(request):
     blogs_list = Blog.objects.all()
-    data = BlogSerializer(blogs_list, many=True).data
-    return Response({'data': data})
+    context = paginator.paginate_queryset(blogs_list , request)
+    data = BlogSerializer(context, many=True).data
+    return paginator.get_paginated_response(data)
+
+
 
 
 @api_view(['GET'])
 def blogdetailsapi(request, id):
     blog_details = Blog.objects.get(id=id)
     data = BlogSerializer(blog_details).data
-    ## incrrease popularty counter every request
+
+    # incrrease popularty counter every request
     blog_details.popular += 1
     blog_details.save()
-    ## return json data
+
+    # return json data
     return Response({'data': data})
 
 
@@ -29,8 +44,9 @@ def blogdetailsapi(request, id):
 def categoryblogsapi(request, category_id):
 
     category_blogs = Blog.objects.filter(category=category_id)
-    data = BlogSerializer(category_blogs, many=True).data
-    return Response({'data': data})
+    context = paginator.paginate_queryset(category_blogs , request)
+    data = BlogSerializer(context, many=True).data
+    return paginator.get_paginated_response(data)
 
 
 #  ====================================================================================
@@ -47,8 +63,9 @@ def categorylistapi(request):
 @api_view(['GET'])
 def recentArticlesapi(request):
     recent_articles = Blog.objects.order_by('-created_at')
-    data = BlogSerializer(recent_articles, many=True).data
-    return Response({'data': data})
+    context = paginator.paginate_queryset(recent_articles , request)
+    data = BlogSerializer(context, many=True).data
+    return paginator.get_paginated_response(data)
 
 
 # ===================================================================================
@@ -57,8 +74,9 @@ def recentArticlesapi(request):
 @api_view(['GET'])
 def popularArticlesapi(request):
     popular_articles = Blog.objects.order_by('-popular')
-    data = BlogSerializer(popular_articles, many=True).data
-    return Response({'data': data})
+    context = paginator.paginate_queryset(popular_articles , request)
+    data = BlogSerializer(context, many=True).data
+    return paginator.get_paginated_response(data)
 
 
 #  ====================================================================================
@@ -67,8 +85,9 @@ def popularArticlesapi(request):
 @api_view(['GET'])
 def shortArticlesapi(request):
     short_articles = Blog.objects.order_by('read_time')
-    data = BlogSerializer(short_articles, many=True).data
-    return Response({'data': data})
+    context = paginator.paginate_queryset(short_articles , request)
+    data = BlogSerializer(context, many=True).data
+    return paginator.get_paginated_response(data)
 
 
 #  ====================================================================================
@@ -77,17 +96,20 @@ def shortArticlesapi(request):
 @api_view(['GET'])
 def randomArticlesapi(request):
     random_articles = Blog.objects.order_by('updated_at')
-    data = BlogSerializer(random_articles, many=True).data
-    return Response({'data': data})
+    context = paginator.paginate_queryset(random_articles , request)
+    data = BlogSerializer(context, many=True).data
+    return paginator.get_paginated_response(data)
 
 
 #  ====================================================================================
 
+# from rest_framework.pagination import PageNumberPagination
 
-@api_view(['GET'])
-def searchArticleapi(request):
-    blog_details = Blog.objects.all()
-    data = BlogSerializer(blog_details).data
 
-    ## return json data
-    return Response({'data': data})
+# @api_view(['GET',])
+# def my_function_based_list_view(request):
+#     paginator = PageNumberPagination()
+#     query_set = MyModel.objects.all()
+#     context = paginator.paginate_queryset(query_set, request)
+#     serializer = MyModelSerializer(context, many=True)
+#     return paginator.get_paginated_response(serializer.data)
